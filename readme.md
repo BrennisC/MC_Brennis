@@ -6,13 +6,6 @@
 - **vistas/index.html**: Página principal de inicio de sesión, con campos de nombre de usuario y contraseña.
 - **vistas/registar.html**: Página de registro donde los nuevos usuarios pueden crear una cuenta.
 
-## Instalación y Configuración
-
-1. Clona este repositorio en tu máquina local.
-   ```bash
-   git clone https://github.com/tuusuario/proyecto-inicio-sesion.git
-   ```
-
 # Brennis Benjaminn Castro Cano
 
 login2
