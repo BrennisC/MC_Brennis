@@ -18,16 +18,17 @@ body {
     display: flex;
     justify-content: center;
     align-items: center;
+    height: 200vh;
     height: 100vh;
 }
 
-.register-box {
-    background-color: #ffffff;
+.register {
+    background-color: #ffff;
     padding: 40px;
     border-radius: 8px;
     box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
     max-width: 400px;
-    width: 100%;
+    width: 200%;
     text-align: center;
 }
 
@@ -55,7 +56,8 @@ label {
 
 #username,
 #password,
-#email {
+#email,
+#confirm-password {
     padding: 10px;
     border: 1px solid #ddd;
     border-radius: 4px;
@@ -68,11 +70,12 @@ label {
 
 #username:focus,
 #password :focus,
-#email :focus {
+#email :focus,
+#confirm-password :focus {
     border-color: #5b9dd9;
 }
 
-button[type="submit"] {
+#registar-btn {
     background-color: #5b9dd9;
     color: #fff;
     padding: 10px 20px;
@@ -83,7 +86,7 @@ button[type="submit"] {
     transition: background-color 0.3s;
 }
 
-button[type="submit"]:hover {
+#registar-btn:hover {
     background-color: #4a8cc7;
 }
 
