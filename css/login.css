@@ -1,4 +1,7 @@
-/* login.css */
+* {
+  margin: 0;
+  padding: 0;
+}
 
 body {
   display: flex;
@@ -7,12 +10,12 @@ body {
   min-height: 100vh;
   margin: 0;
   font-family: Arial, sans-serif;
-  background-color: #f0f4f8; /* Manteniendo el color de fondo */
+  background-color: #f0f4f8;
 }
 
 .content {
   width: 100%;
-  max-width: 400px; /* Ajusta el tamaño máximo del contenedor */
+  max-width: 400px;
   padding: 20px;
 }
 
@@ -48,8 +51,8 @@ form label {
   color: #333333;
 }
 
-form input[type="text"],
-form input[type="password"] {
+#txtusername,
+#txtpassword {
   width: 100%;
   padding: 10px;
   border: 1px solid #cccccc;
@@ -57,7 +60,7 @@ form input[type="password"] {
 }
 
 .btn {
-  background-color: #4a90e2; /* Color de botón azul */
+  background-color: #4a90e2;
   color: white;
   padding: 10px;
   border: none;
