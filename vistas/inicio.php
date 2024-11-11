@@ -5,8 +5,7 @@
 
     <div class="container">
         <div class="register">
-            <h2>Welcome</h2>
-            <p>Fill in the details to register</p>
+            <h2>Inicio </h2>
         </div>
     </div>
 
