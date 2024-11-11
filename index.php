@@ -29,6 +29,7 @@
       header("Location: http://127.0.0.1/examen_medio_curso/vistas/dashboard.php");
       exit();
     } else {
+      // header("Location: http://127.0.0.1/examen_medio_curso/claveincorrecta.php");
       $error = 'credenciales incorrectas';
     }
   }
