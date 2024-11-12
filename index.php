@@ -16,7 +16,7 @@
 
   $error = '';
   if (isset($_SESSION['txtusername'])) {
-    header("Location: http://127.0.0.1/examen_medio_curso/vistas/dashboard.php");
+    header("Location: http://127.0.0.1/examen_medio_curso/views/dashboard.php");
     exit();
   }
   if ($_SERVER['REQUEST_METHOD'] == 'POST') {
@@ -26,7 +26,7 @@
       $password = $_POST['txtpassword'];
     }
     if ($username == 'admin' && $password == '1234') {
-      header("Location: http://127.0.0.1/examen_medio_curso/vistas/dashboard.php");
+      header("Location: http://127.0.0.1/examen_medio_curso/views/dashboard.php");
       exit();
     } else {
       // header("Location: http://127.0.0.1/examen_medio_curso/claveincorrecta.php");
@@ -78,7 +78,7 @@
       </form>
 
       <span class="links">
-        <a href="./vistas/registar.php">Register Me</a>
+        <a href="./views/registar.php">Register Me</a>
       </span>
     </div>
   </div>
