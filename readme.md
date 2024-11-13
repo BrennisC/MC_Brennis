@@ -9,4 +9,4 @@
 
 # login2
 
-<img src="./assets/login2.png" alt="Texto alternativo" width="200" height="100">
+<img src="./img/login2.png" alt="Texto alternativo" width="200" height="100">
