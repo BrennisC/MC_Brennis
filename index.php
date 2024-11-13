@@ -11,22 +11,32 @@
 <body>
 
   <?php
+  // conexion de la base de datos
+  require_once $_SERVER['DOCUMENT_ROOT'] . '/examen_medio_curso/etc/config.php ';
+  require_once $_SERVER['DOCUMENT_ROOT'] . '/examen_medio_curso/models/connect/conexion.php ';
+
+
+  $conexion = new Conexion();
+  $pdo = $conexion->connection();
+
 
   session_start();
 
   $error = '';
   if (isset($_SESSION['txtusername'])) {
-    header("Location: http://127.0.0.1/examen_medio_curso/vistas/dashboard.php");
+    header("Location: http://127.0.0.1/examen_medio_curso/views/dashboard.php");
     exit();
   }
   if ($_SERVER['REQUEST_METHOD'] == 'POST') {
 
     if (isset($_POST['txtusername']) && isset($_POST['txtpassword'])) {
+
+
       $username = $_POST['txtusername'];
       $password = $_POST['txtpassword'];
     }
     if ($username == 'admin' && $password == '1234') {
-      header("Location: http://127.0.0.1/examen_medio_curso/vistas/dashboard.php");
+      header("Location: http://127.0.0.1/examen_medio_curso/views/dashboard.php");
       exit();
     } else {
       // header("Location: http://127.0.0.1/examen_medio_curso/claveincorrecta.php");
