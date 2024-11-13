@@ -88,7 +88,7 @@
       </form>
 
       <span class="links">
-        <a href="./vistas/registar.php">Register Me</a>
+        <a href="./views/registar.php">Register Me</a>
       </span>
     </div>
   </div>
