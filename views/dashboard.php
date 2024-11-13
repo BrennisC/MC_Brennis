@@ -1,3 +1,7 @@
+<?php
+require_once $_SERVER['DOCUMENT_ROOT'] . '/etc/config.php ';
+?>
+
 <!DOCTYPE html>
 <html lang="es">
 
@@ -17,7 +21,8 @@
             <li> <a href="?opcion=ingresar"><i class="fas fa-plus-circle"></i> Ingresar </a></li>
             <li> <a href="?opcion=modificar"><i class="fas fa-edit"></i> Modificar </a></li>
             <li> <a href="?opcion=eliminar"><i class="fas fa-trash-alt"></i> Eliminar </a></li>
-            <li> <a href="../logout.php"><i class="fas fa-sign-out-alt"></i> Salir de Sistema </a></li>
+            <li> <a href="../controllers/logout.php"><i class="fas fa-sign-out-alt"></i> Salir de Sistema </a></li>
+
         </ul>
     </div>
 
@@ -34,19 +39,19 @@
 
         switch ($opcion) {
             case 'inicio':
-                include('inicio.php');
+                include(get_UrlBase_view('inicio.php'));
                 break;
             case 'ver':
-                include('ver.php');
+                include(get_UrlBase_view('ver.php'));
                 break;
             case 'ingresar':
-                include('ingresar.php');
+                include(get_UrlBase_view('ingresar.php'));
                 break;
             case 'modificar':
-                include('modificar.php');
+                include(get_UrlBase_view('modificar.php'));
                 break;
             case 'eliminar':
-                include('eliminar.php');
+                include(get_UrlBase_view('eliminar.php'));
                 break;
             default:
                 echo '<p>No has seleccionado ninguna opci&oacute;n</p>';

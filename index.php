@@ -11,20 +11,24 @@
 <body>
 
   <?php
+
+  // para mantener las sesiones
+  session_start();
   // conexion de la base de datos
-  require_once $_SERVER['DOCUMENT_ROOT'] . '/examen_medio_curso/etc/config.php ';
-  require_once $_SERVER['DOCUMENT_ROOT'] . '/examen_medio_curso/models/connect/conexion.php ';
+  require_once $_SERVER["DOCUMENT_ROOT"] . '/etc/config.php';
+
+  require_once get_UrlBase_model('connect/conexion.php');
 
 
+  // estableciendo la conexion a mi usuario ADMIN
   $conexion = new Conexion();
   $pdo = $conexion->connection();
-
-
-  session_start();
+  $query = $pdo->query("SELECT id, username, password FROM usuarios WHERE id = 1");
+  $usuario = $query->fetch(PDO::FETCH_ASSOC);
 
   $error = '';
   if (isset($_SESSION['txtusername'])) {
-    header("Location: http://127.0.0.1/examen_medio_curso/views/dashboard.php");
+    header("Location: http://examen_medio_curso.test/views/dashboard.php");
     exit();
   }
   if ($_SERVER['REQUEST_METHOD'] == 'POST') {
@@ -35,8 +39,8 @@
       $username = $_POST['txtusername'];
       $password = $_POST['txtpassword'];
     }
-    if ($username == 'admin' && $password == '1234') {
-      header("Location: http://127.0.0.1/examen_medio_curso/views/dashboard.php");
+    if ($username == $usuario['username'] && $password == $usuario['password']) {
+      header("Location: http://examen_medio_curso.test/views/dashboard.php");
       exit();
     } else {
       // header("Location: http://127.0.0.1/examen_medio_curso/claveincorrecta.php");
