@@ -21,7 +21,7 @@ require_once $_SERVER['DOCUMENT_ROOT'] . '/etc/config.php ';
             <li> <a href="?opcion=ingresar"><i class="fas fa-plus-circle"></i> Ingresar </a></li>
             <li> <a href="?opcion=modificar"><i class="fas fa-edit"></i> Modificar </a></li>
             <li> <a href="?opcion=eliminar"><i class="fas fa-trash-alt"></i> Eliminar </a></li>
-            <li> <a href="../controllers/logout.php"><i class="fas fa-sign-out-alt"></i> Salir de Sistema </a></li>
+            <li> <a href="?opcion=logout"><i class="fas fa-sign-out-alt"></i> Salir de Sistema </a></li>
 
         </ul>
     </div>
@@ -52,6 +52,9 @@ require_once $_SERVER['DOCUMENT_ROOT'] . '/etc/config.php ';
                 break;
             case 'eliminar':
                 include(get_UrlBase_view('eliminar.php'));
+                break;
+            case 'logout':
+                include(get_UrlBase_controller('logout.php'));
                 break;
             default:
                 echo '<p>No has seleccionado ninguna opci&oacute;n</p>';

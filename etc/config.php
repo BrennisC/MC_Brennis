@@ -34,3 +34,7 @@ function get_UrlBase_controller($arg1)
 {
     return $GLOBALS['_urlBase'] . 'controllers/' . $arg1;
 }
+function get_UrlBase_test($arg1)
+{
+    return $GLOBALS['_urlBase'] . 'test/' . $arg1;
+}
