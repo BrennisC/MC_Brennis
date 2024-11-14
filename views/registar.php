@@ -1,3 +1,8 @@
+<?php
+require_once $_SERVER['DOCUMENT_ROOT'] . '/etc/config.php';
+?>
+
+
 <!DOCTYPE html>
 <html lang="es">
 
@@ -18,7 +23,7 @@
         <label for="username">Username</label>
         <input type="text" id="username" placeholder="Choose a username" />
 
-        <label for="email">Email</label>
+        <label for="email">Perfil</label>
         <input type="email" id="email" placeholder="Enter your email" />
 
         <label for="password">Password</label>
@@ -37,7 +42,7 @@
       </form>
 
       <div class="links">
-        <p>Already have an account? <a href="../index.php">Login</a></p>
+        <p>Already have an account? <a href=<?php echo get_UrlBase('index.php') ?>>Login</a></p>
       </div>
     </div>
   </div>

@@ -1,3 +1,11 @@
+<?php
+// conexion de la base de datos
+require_once $_SERVER["DOCUMENT_ROOT"] . '/etc/config.php';
+require_once $_SERVER["DOCUMENT_ROOT"] . '/models/connect/conexion.php';
+
+?>
+
+
 <!DOCTYPE html>
 <html lang="es">
 
@@ -5,7 +13,8 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Inicio de Sesión</title>
-  <link rel="stylesheet" href="./css/login.css" />
+  <link rel="stylesheet" href=<?php echo get_css('/login.css') ?> />
+
 </head>
 
 <body>
@@ -14,12 +23,7 @@
 
   // para mantener las sesiones
   session_start();
-  // conexion de la base de datos
-  require_once $_SERVER["DOCUMENT_ROOT"] . '/etc/config.php';
-
-  require_once get_UrlBase_model('connect/conexion.php');
-
-
+  // conexion de la base de dat
   // estableciendo la conexion a mi usuario ADMIN
   $conexion = new Conexion();
   $pdo = $conexion->connection();
@@ -27,35 +31,50 @@
   $usuario = $query->fetch(PDO::FETCH_ASSOC);
 
   $error = '';
-  if (isset($_SESSION['txtusername'])) {
-    header("Location: http://examen_medio_curso.test/views/dashboard.php");
-    exit();
-  }
-  if ($_SERVER['REQUEST_METHOD'] == 'POST') {
+  if ($_SERVER["REQUEST_METHOD"] == "POST") {
+    //echo "<br>";
+    //echo "SE EMBIARON LAS SIGUIENTES VARIABLES: ";
+    //echo "<br>";
+    //echo $_POST["txtusername"];
+    //echo "<br>";
+    //echo $_POST["txtpassword"];
+    //echo "<br>";
+    $v_username = "";
+    $v_password = "";
 
-    if (isset($_POST['txtusername']) && isset($_POST['txtpassword'])) {
-
-
-      $username = $_POST['txtusername'];
-      $password = $_POST['txtpassword'];
+    if (isset($_POST["txtusername"])) {
+      $v_username = $_POST["txtusername"];
     }
-    if ($username == $usuario['username'] && $password == $usuario['password']) {
-      header("Location: http://examen_medio_curso.test/views/dashboard.php");
-      exit();
+
+    if (isset($_POST["txtpassword"])) {
+      $v_password = $_POST["txtpassword"];
+    }
+
+    if (($v_username == $usuario["username"] && $v_password == $usuario["password"])) {
+      $_SESSION["txtusername"] = $v_username;
+      $_SESSION["txtpassword"] = $v_password;
+      //header("location: dashboard.php");
+      // sleep(120);
+      $_SESSION['loading'] = true;
+      header('Location: ' . get_views('dashboard.php'));
+      //echo "dashboard";
     } else {
-      // header("Location: http://127.0.0.1/examen_medio_curso/claveincorrecta.php");
-      $error = 'credenciales incorrectas';
+      //header("Location: claveequivocada.php");
+      // header('Location: ' . get_views('claveequivocada.php'));
+      $error = "credenciales incorrectas";
     }
   }
-
   ?>
+  <div id="loader" class="loader-overlay">
+    <div class="loader"></div>
+  </div>
 
   <div class="content">
     <div class="title-container">
       <h2>Remember Me</h2>
       <p>Username & Password</p>
 
-      <form action="" method="POST">
+      <form action="" method="post">
         <label for="username">Username</label>
         <input
           type="text"
@@ -91,11 +110,13 @@
         <input type="submit" class="btn" value="Login" />
       </form>
 
+
       <span class="links">
-        <a href="./views/registar.php">Register Me</a>
+        <a href=<?php echo get_views('registar.php') ?>>Register Me</a>
       </span>
     </div>
   </div>
+  <script src="./js/aminacion.js"></script>
 </body>
 
 </html>

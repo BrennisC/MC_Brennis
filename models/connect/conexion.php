@@ -1,6 +1,6 @@
 <?php
-
 require_once $_SERVER['DOCUMENT_ROOT'] . '/etc/config.php ';
+
 class Conexion
 {
     public $pdo;
@@ -22,5 +22,10 @@ class Conexion
     public function connection()
     {
         return $this->pdo;
+    }
+
+    public function show_data()
+    {
+        return $this->pdo->query("SELECT * FROM usuarios");
     }
 }
