@@ -1,0 +1,1 @@
+ErrorDocument 404 http://examen_medio_curso.test/views/error_pages/404.php
