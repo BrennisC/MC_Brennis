@@ -1,14 +1,17 @@
 <!DOCTYPE html>
 <html lang="en">
 
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title><?php echo $_GET['opcion'] ?></title>
+</head>
+
 <body>
 
-    <div class="container">
-        <div class="register">
-            <h2>Eliminar</h2>
-            <p>¿Estas seguro de eliminar?</p>
-        </div>
-    </div>
+    <h1>
+        eliminar
+    </h1>
 </body>
 
 </html>

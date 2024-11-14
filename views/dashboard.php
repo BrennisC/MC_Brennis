@@ -19,8 +19,6 @@ $page = isset($_GET['page']) ? (int)$_GET['page'] : 1;
 $_SESSION['current_page'] = $page;
 
 ?>
-?>
-
 <!DOCTYPE html>
 <html lang="es">
 
