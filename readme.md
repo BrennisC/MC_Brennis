@@ -43,7 +43,7 @@ Para ejecutar el proyecto, necesitas tener instalado:
    - **Copiar código**
    - **define('DB_HOST', 'localhost')**;
    - **define('DB_USER', 'root')**;
-   - **define('DB_NAME', 'dbsistemas')**;
+   - **define('DB_NAME', 'dbsistema')**;
    - **define('DB_PASS', '')**;
      Inicia Laragon:
 
