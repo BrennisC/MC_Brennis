@@ -28,6 +28,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
             if ($sentencia && $query->rowCount() > 0) {
                 $message = "<p style='color: green;'>El usuario '$datusuario' fue eliminado exitosamente.</p>";
+                $datusuario = ''; // Vaciar el input después de la eliminación
             } else {
                 $message = "<p style='color: red;'>No se encontró un usuario con el nombre '$datusuario'.</p>";
             }
@@ -52,18 +53,16 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     <div class="container">
         <h1><i class="fas fa-trash-alt"></i> Eliminar Usuario</h1>
 
-
         <?php if (!empty($message)) : ?>
             <div class="message <?= strpos($message, 'exitosamente') !== false ? 'success' : 'error' ?>">
                 <?= $message ?>
             </div>
         <?php endif; ?>
 
-
         <form action="" method="POST">
             <div class="input-container">
                 <i class="fas fa-user"></i>
-                <input type="text" name="datusuario" id="datusuario" value="<?= $datusuario ?>" placeholder="Nombre de usuario" required>
+                <input type="text" name="datusuario" id="datusuario" value="<?= htmlspecialchars($datusuario) ?>" placeholder="Nombre de usuario" required>
             </div>
             <button type="submit"><i class="fas fa-trash"></i> Eliminar</button>
         </form>
