@@ -50,7 +50,6 @@ if (!isset($_SESSION["txtusername"])) {
             $opcion = $_GET["opcion"];
             // echo '<p>Has seleccionado: ' . htmlspecialchars($opcion) . '</p>';
         } else {
-            echo '<h1>Bienvenido al Dashboard</h1>';
             $opcion = 'inicio';
         }
 

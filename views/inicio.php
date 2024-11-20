@@ -22,7 +22,7 @@ if (!isset($_SESSION["txtusername"])) {
 
 <body>
     <div class="container">
-        <h1>Dashboard Simple</h1>
+        <h1>Dashboard </h1>
 
         <!-- Sección de estadísticas -->
         <div class="stats">
