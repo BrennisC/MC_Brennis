@@ -40,3 +40,7 @@ function get_css($arg1)
 {
     return $GLOBALS['_urlBase'] . 'css/' . $arg1;
 }
+function get_img($arg1)
+{
+    return $GLOBALS['_urlBase'] . 'img/' . $arg1;
+}

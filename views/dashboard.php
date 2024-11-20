@@ -11,12 +11,10 @@ if (!isset($_SESSION["txtusername"])) {
     header('Location: ' . get_UrlBase('index.php'));
     exit();
 }
+// $page = isset($_GET['page']) ? (int)$_GET['page'] : 1;
 
-
-$page = isset($_GET['page']) ? (int)$_GET['page'] : 1;
-
-// Guardar la página actual en la sesión
-$_SESSION['current_page'] = $page;
+// // Guardar la página actual en la sesión
+// $_SESSION['current_page'] = $page;
 
 ?>
 <!DOCTYPE html>
@@ -58,23 +56,24 @@ $_SESSION['current_page'] = $page;
 
         switch ($opcion) {
             case 'inicio':
-                include(get_views('inicio.php'));
+                echo "<iframe src='" . get_views('inicio.php') . "' width='800' height='600'></iframe>";
                 break;
             case 'ver':
-                include(get_views('ver.php'));
+                echo "<iframe src='" . get_views('ver.php') . "' width='800' height='600'></iframe>";
                 break;
             case 'ingresar':
-                include(get_views('ingresar.php'));
+                echo "<iframe src='" . get_views('ingresar.php') . "' width='800' height='600'></iframe>";
                 break;
             case 'modificar':
-                include(get_views('modificar.php'));
+                echo "<iframe src='" . get_views('modificar.php') . "' width='800' height='600'></iframe>";
                 break;
             case 'eliminar':
-                include(get_views('eliminar.php'));
+                echo "<iframe src='" . get_views('eliminar.php') . "' width='800' height='600'></iframe>";
                 break;
             default:
-                echo '<p>No has seleccionado ninguna opci&oacute;n</p>';
+                echo '<p>No has seleccionado ninguna opción</p>';
         }
+
         ?>
     </div>
     <script src=<?php echo get_js('dashboard.js') ?>></script>

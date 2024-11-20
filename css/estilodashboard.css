@@ -69,3 +69,13 @@ body {
     font-weight: bold;
     color: #000;
 }
+
+.custom-iframe {
+    width: 100%;
+    height: 70vh;
+    /* Usa una altura relativa al viewport */
+    max-height: 800px;
+    /* Altura máxima si es necesario */
+    border: none;
+    /* Elimina bordes si no los necesitas */
+}

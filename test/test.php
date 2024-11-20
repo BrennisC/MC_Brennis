@@ -14,7 +14,7 @@ require_once $_SERVER['DOCUMENT_ROOT'] . '/etc/config.php ';
     $_SESSION['favanimal'] = "cat";
 
 
-    // echo $_SERVER['DOCUMENT_ROOT'];
+    echo $_SERVER['DOCUMENT_ROOT'];
 
     // echo get_UrlBase_view('inicio.php');
     // echo '<br>';
