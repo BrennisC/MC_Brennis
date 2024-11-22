@@ -26,7 +26,7 @@ require_once $_SERVER["DOCUMENT_ROOT"] . '/models/connect/conexion.php';
   // estableciendo la conexion a mi usuario ADMIN
   $conexion = new Conexion();
   $pdo = $conexion->connection();
-  $query = $pdo->query("SELECT id, username, password FROM usuarios WHERE id = 25");
+  $query = $pdo->query("SELECT id, username, password FROM usuarios ");
   $usuario = $query->fetch(PDO::FETCH_ASSOC);
 
 
