@@ -1,9 +1,16 @@
 <?php
+session_start();
 require_once $_SERVER['DOCUMENT_ROOT'] . '/etc/config.php';
-require_once $_SERVER["DOCUMENT_ROOT"] . '/models/connect/conexion.php';
-$conexion = new Conexion();
-$pdo = $conexion->connection();
-$query = $pdo->query("SELECT id, username, password,perfil FROM usuarios");
+require_once $_SERVER["DOCUMENT_ROOT"] . '/models/modeloUsuario.php';
+
+if (!isset($_SESSION["txtusername"])) {
+    header('Location: ' . get_UrlBase('index.php'));
+    exit();
+}
+
+
+$modeloUsuario = new modeloUsuario();
+$usuarios = $modeloUsuario->obtenerUsuarios();
 ?>
 
 <!DOCTYPE html>
@@ -32,7 +39,7 @@ $query = $pdo->query("SELECT id, username, password,perfil FROM usuarios");
                 </tr>
             </thead>
             <tbody>
-                <?php foreach ($query as $row) : ?>
+                <?php foreach ($usuarios as $row) : ?>
                     <tr>
                         <td class="icon"><?= $row['id'] ?></td>
                         <td><?= $row['username'] ?></td>

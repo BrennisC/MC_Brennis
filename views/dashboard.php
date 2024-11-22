@@ -58,7 +58,7 @@ if (!isset($_SESSION["txtusername"])) {
                 echo "<iframe src='" . get_views('inicio.php') . "' width='800' height='600'></iframe>";
                 break;
             case 'ver':
-                echo "<iframe src='" . get_views('ver.php') . "' width='800' height='600'></iframe>";
+                echo "<iframe src='" . get_controller('controladorUsuario.php') . "' width='800' height='600'></iframe>";
                 break;
             case 'ingresar':
                 echo "<iframe src='" . get_views('ingresar.php') . "' width='800' height='600'></iframe>";
