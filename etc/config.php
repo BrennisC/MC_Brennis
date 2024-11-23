@@ -6,7 +6,7 @@ define('URL_BASE', 'http://examen_medio_curso.test/');
 define('DB_HOST', 'localhost');
 define('DB_USER', 'root');
 define('DB_NAME', 'dbsistema');
-define('DB_PASS', '123456789');
+define('DB_PASS', '');
 
 
 

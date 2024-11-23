@@ -29,9 +29,15 @@ if (!isset($_SESSION["txtusername"])) {
 </head>
 
 <body>
-
-
     <div class="menu">
+        <span class="username">
+            <h1>
+                <i class="fas fa-user"></i> <?= $_SESSION["txtusername"]; ?>
+            </h1>
+            <hr>
+        </span>
+
+        </h1>
         <ul>
             <li> <a href="?opcion=inicio"><i class="fas fa-home"></i> Inicio </a> </li>
             <li> <a href="?opcion=ver"><i class="fas fa-eye"></i> Ver </a></li>
@@ -61,13 +67,13 @@ if (!isset($_SESSION["txtusername"])) {
                 echo "<iframe src='" . get_controller('controladorUsuario.php') . "' width='800' height='600'></iframe>";
                 break;
             case 'ingresar':
-                echo "<iframe src='" . get_views('ingresar.php') . "' width='800' height='600'></iframe>";
+                echo "<iframe src='" . get_controller('controladorIngresarUsuario.php') . "' width='800' height='600'></iframe>";
                 break;
             case 'modificar':
                 echo "<iframe src='" . get_views('modificar.php') . "' width='800' height='600'></iframe>";
                 break;
             case 'eliminar':
-                echo "<iframe src='" . get_views('eliminar.php') . "' width='800' height='600'></iframe>";
+                echo "<iframe src='" . get_controller('controladorEliminarUsuario.php') . "' width='800' height='600'></iframe>";
                 break;
             default:
                 echo '<p>No has seleccionado ninguna opción</p>';

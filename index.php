@@ -1,7 +1,7 @@
 <?php
 // conexion de la base de datos
 require_once $_SERVER["DOCUMENT_ROOT"] . '/etc/config.php';
-require_once $_SERVER["DOCUMENT_ROOT"] . '/models/connect/conexion.php';
+require_once $_SERVER["DOCUMENT_ROOT"] . '/models/modeloUsuario.php';
 ?>
 
 
@@ -12,7 +12,7 @@ require_once $_SERVER["DOCUMENT_ROOT"] . '/models/connect/conexion.php';
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Inicio de Sesión</title>
-  <link rel="stylesheet" href=<?php echo get_css('/login.css') ?> />
+  <link rel="stylesheet" href=<?php echo get_css('login.css') ?> />
 
 </head>
 
@@ -24,13 +24,10 @@ require_once $_SERVER["DOCUMENT_ROOT"] . '/models/connect/conexion.php';
   session_start();
   // conexion de la base de dat
   // estableciendo la conexion a mi usuario ADMIN
-  $conexion = new Conexion();
-  $pdo = $conexion->connection();
-  $query = $pdo->query("SELECT id, username, password FROM usuarios ");
-  $usuario = $query->fetch(PDO::FETCH_ASSOC);
+  $conexion = new modeloUsuario();
+  $query = $conexion->obtenerUsuarios();
+  $usuario = $query[0];
 
-
-  print_r($usuario);
   $error = '';
   if ($_SERVER["REQUEST_METHOD"] == "POST") {
     //echo "<br>";
@@ -81,14 +78,16 @@ require_once $_SERVER["DOCUMENT_ROOT"] . '/models/connect/conexion.php';
           type="text"
           id="txtusername"
           name="txtusername"
-          placeholder="Enter your username" />
+          placeholder="Enter your username"
+          required />
 
         <label for="password">Password</label>
         <input
           type="password"
           id="txtpassword"
           name="txtpassword"
-          placeholder="Enter your password" />
+          placeholder="Enter your password"
+          required />
         <!-- </div> -->
 
         <!-- <div class="options">
@@ -98,7 +97,6 @@ require_once $_SERVER["DOCUMENT_ROOT"] . '/models/connect/conexion.php';
             </label>
             <a href="#">Forgot Password?</a>
           </div> -->
-
         <?php if (isset($error)) : ?>
           <span class="error">
             <?php

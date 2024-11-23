@@ -15,17 +15,22 @@ class modeloUsuario
         $query = $this->conexion->query("SELECT * FROM usuarios");
         return $query->fetchAll(PDO::FETCH_ASSOC);
     }
-
+    public function obtenerUsuarioPorNombre($username)
+    {
+        $query = $this->conexion->prepare("SELECT * FROM usuarios WHERE username = ?");
+        $query->execute([$username]);
+        return $query->fetch(PDO::FETCH_ASSOC);
+    }
     public  function agregarUsuario($username, $password, $perfil)
     {
         $query = $this->conexion->prepare("INSERT INTO usuarios (username, password, perfil) VALUES (?, ?, ?)");
         $query->execute([$username, $password, $perfil]);
     }
 
-    public  function  eliminarUsuario($id)
+    public  function  eliminarUsuario($username)
     {
-        $query = $this->conexion->prepare("DELETE FROM usuarios WHERE id = ?");
-        $query->execute([$id]);
+        $query = $this->conexion->prepare("DELETE FROM usuarios WHERE username = ?");
+        $query->execute([$username]);
     }
 
     public  function actualizarUsuario($id, $username, $password, $perfil)
