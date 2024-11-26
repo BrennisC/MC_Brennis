@@ -37,6 +37,7 @@ class modeloUsuario
     {
         $query = $this->conexion->prepare("UPDATE usuarios SET username = ?, password = ?, perfil = ? WHERE id = ?");
         $query->execute([$username, $password, $perfil, $id]);
+        return $query->rowCount() > 0;
     }
 }
 

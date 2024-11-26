@@ -70,7 +70,7 @@ if (!isset($_SESSION["txtusername"])) {
                 echo "<iframe src='" . get_controller('controladorIngresarUsuario.php') . "' width='800' height='600'></iframe>";
                 break;
             case 'modificar':
-                echo "<iframe src='" . get_views('modificar.php') . "' width='800' height='600'></iframe>";
+                echo "<iframe src='" . get_controller('controladorModificarUsuario.php') . "' width='800' height='600'></iframe>";
                 break;
             case 'eliminar':
                 echo "<iframe src='" . get_controller('controladorEliminarUsuario.php') . "' width='800' height='600'></iframe>";
