@@ -1,6 +1,7 @@
 <?php
 session_start();
 require_once $_SERVER["DOCUMENT_ROOT"] . '/models/modeloUsuario.php';
+require_once $_SERVER["DOCUMENT_ROOT"] . '/etc/config.php';
 require_once $_SERVER["DOCUMENT_ROOT"] . '/views/vistaModificarUsuario.php';
 
 if (!isset($_SESSION["txtusername"])) {
@@ -12,8 +13,8 @@ $modeloUsuario = new modeloUsuario();
 $mensaje = '';
 
 // Manejar búsqueda de usuario
-if (isset($_POST['search_user'])) {
-    $username = $_POST['search_username'];
+if (isset($_POST['search_user']) || isset($_GET['username'])) {
+    $username = $_POST['search_username'] ?? $_GET['username'];
     $usuario = $modeloUsuario->obtenerUsuarioPorNombre($username);
 
     if ($usuario) {
@@ -42,6 +43,6 @@ if (isset($_POST['update_user'])) {
 }
 
 // Mostrar formulario de búsqueda por defecto si no hay POST
-if ($_SERVER['REQUEST_METHOD'] !== 'POST') {
+if (($_SERVER['REQUEST_METHOD'] !== 'POST') && !isset($_POST['search_user']) && !isset($_GET['username'])) {
     buscarUsuario($mensaje);
 }

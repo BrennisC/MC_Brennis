@@ -11,8 +11,8 @@ if (!isset($_SESSION["txtusername"])) {
 
 $modeloUsuario = new modeloUsuario();
 $mensaje = '';
-if ($_SERVER["REQUEST_METHOD"] == "POST") {
-    $datusuario = $_POST["datusuario"];
+if (($_SERVER["REQUEST_METHOD"] == "POST") || ($_SERVER["REQUEST_METHOD"] == "GET")) {
+    $datusuario = $_POST["datusuario"] ?? $_GET["username"];
 
     try {
         $modeloUsuario->eliminarUsuario($datusuario);
@@ -21,5 +21,4 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         $mensaje = "Hubo un error  ...<br>" . $e->getMessage();
     }
 }
-
 mostrarFormularioEliminacion($mensaje);

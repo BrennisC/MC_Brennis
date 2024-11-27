@@ -1,5 +1,4 @@
 <?php
-require_once $_SERVER['DOCUMENT_ROOT'] . '/etc/config.php';
 function mostrarFormularioModificacion($userData, $mensaje = '')
 { ?>
     <!DOCTYPE html>
