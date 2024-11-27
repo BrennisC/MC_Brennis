@@ -1,6 +1,6 @@
 <?php
 
-function mostrarFormularioEliminacion()
+function mostrarFormularioEliminacion($mensaje)
 { ?>
     <!DOCTYPE html>
     <html lang="en">
@@ -17,6 +17,9 @@ function mostrarFormularioEliminacion()
         <div class="container">
             <h1><i class="fas fa-trash-alt"></i> Eliminar Usuario</h1>
             <br>
+            <div class="message">
+                <?php echo $mensaje; ?>
+            </div>
             <form action="../controllers/controladorEliminarUsuario.php" method="POST">
                 <div class="input-container">
                     <i class="fas fa-user"></i>

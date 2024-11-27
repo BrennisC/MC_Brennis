@@ -10,15 +10,16 @@ if (!isset($_SESSION["txtusername"])) {
 
 
 $modeloUsuario = new modeloUsuario();
+$mensaje = '';
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $datusuario = $_POST["datusuario"];
 
     try {
         $modeloUsuario->eliminarUsuario($datusuario);
-        echo "<span style='color: green;'>Usuario eliminado con exito" . "</span>";
+        $mensaje = "<span style='color: green;'>Usuario eliminado con exito" . "</span>";
     } catch (PDOException $e) {
-        echo "Hubo un error  ...<br>" . $e->getMessage();
+        $mensaje = "Hubo un error  ...<br>" . $e->getMessage();
     }
 }
 
-mostrarFormularioEliminacion();
+mostrarFormularioEliminacion($mensaje);
