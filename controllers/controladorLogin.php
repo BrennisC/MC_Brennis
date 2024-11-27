@@ -33,7 +33,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         //header("location: dashboard.php");
         // sleep(120);
         $_SESSION['loading'] = true;
-        header('Location: ' . get_views('dashboard.php'));
+        header('Location: ' . get_controller('controladorDashboard.php'));
         //echo "dashboard";
     } else {
         //header("Location: claveequivocada.php");

@@ -16,7 +16,6 @@ function mostrarFormularioEliminacion($mensaje)
     <body>
         <div class="container">
             <h1><i class="fas fa-trash-alt"></i> Eliminar Usuario</h1>
-            <br>
             <div class="message">
                 <?php echo $mensaje; ?>
             </div>

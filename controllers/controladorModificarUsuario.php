@@ -36,7 +36,7 @@ if (isset($_POST['update_user'])) {
     if ($resultado) {
         $mensaje = "<p style='color: green;'>Usuario actualizado con éxito.</p>";
     } else {
-        $mensaje = "<p style='color: red;'>Error al actualizar el usuario.</p>";
+        $mensaje = "<p style='color: red;'>Usuario no actualizado.</p>";
     }
     buscarUsuario($mensaje);
 }

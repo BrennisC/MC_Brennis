@@ -70,24 +70,21 @@ function buscarUsuario($mensaje = '')
     <body>
 
         <?php if (empty($userData["id"])) {  ?>
-            <div
-                class="loader-overlay">
-                <div class="loader">
-
-                    <h1>
-                        <i class="fas fa-search"></i> Buscar Usuario
-                    </h1>
-                    <?php if (!empty($mensaje)) : ?>
-                        <div class="message">
-                            <?php echo $mensaje; ?>
-                        </div>
-                    <?php endif; ?>
-                    <form action="../controllers/controladorModificarUsuario.php" method="POST">
-                        <input type="text" name="search_username" id="search_username" placeholder="Nombre de usuario" required>
-                        <button type="submit" name="search_user"><i class="fas fa-search"></i> Buscar</button>
-                    </form>
-                </div>
-            <?php
+            <div class="container">
+                <h1>
+                    <i class="fas fa-search"></i> Buscar Usuario
+                </h1>
+                <?php if (!empty($mensaje)) : ?>
+                    <div class="message">
+                        <?php echo $mensaje; ?>
+                    </div>
+                <?php endif; ?>
+                <form action="../controllers/controladorModificarUsuario.php" method="POST">
+                    <input type="text" name="search_username" id="search_username" placeholder="Nombre de usuario" required>
+                    <button type="submit" name="search_user"><i class="fas fa-search"></i> Buscar</button>
+                </form>
+            </div>
+        <?php
         } ?>
     </body>
 
