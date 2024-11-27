@@ -42,6 +42,7 @@ if (isset($_POST['update_user'])) {
     buscarUsuario($mensaje);
 }
 
+
 // Mostrar formulario de búsqueda por defecto si no hay POST
 if (($_SERVER['REQUEST_METHOD'] !== 'POST') && !isset($_POST['search_user']) && !isset($_GET['username'])) {
     buscarUsuario($mensaje);

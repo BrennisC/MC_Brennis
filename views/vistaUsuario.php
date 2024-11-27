@@ -40,8 +40,6 @@ function mostrarUsuarios($usuarios)
                                     <i class="fas fa-trash-alt"></i>
                                     Eliminar</a>
                             </td>
-
-
                         </tr>
                     <?php endforeach; ?>
                 </tbody>

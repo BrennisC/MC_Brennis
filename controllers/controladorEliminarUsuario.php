@@ -21,4 +21,5 @@ if (($_SERVER["REQUEST_METHOD"] == "POST") || ($_SERVER["REQUEST_METHOD"] == "GE
         $mensaje = "Hubo un error  ...<br>" . $e->getMessage();
     }
 }
+
 mostrarFormularioEliminacion($mensaje);
