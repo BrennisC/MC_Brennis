@@ -8,10 +8,9 @@ if (!isset($_SESSION["txtusername"])) {
     exit();
 }
 
-
 $modeloUsuario = new modeloUsuario();
 $mensaje = '';
-if (($_SERVER["REQUEST_METHOD"] == "POST") || ($_SERVER["REQUEST_METHOD"] == "GET")) {
+if (($_SERVER["REQUEST_METHOD"] == "POST") || isset($_GET['username'])) {
     $datusuario = $_POST["datusuario"] ?? $_GET["username"];
 
     try {
