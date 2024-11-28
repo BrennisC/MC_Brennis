@@ -24,7 +24,7 @@ function mostrarFormularioIngreso($mensaje = '')
                 </div>
             <?php endif; ?>
 
-            <form action="../controllers/controladorIngresarUsuario.php" method="POST">
+            <form action=<?php echo get_controllers('controladorIngresarUsuario.php') ?> method="POST">
                 <label for="datusername"><i class="fas fa-user"></i> Usuario:</label>
                 <input type="text" name="datusername" id="datusername" required>
 

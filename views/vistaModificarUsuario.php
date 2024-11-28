@@ -18,7 +18,7 @@ function mostrarFormularioModificacion($userData, $mensaje = '')
             </div>
             <?php if (!empty($userData["id"])): ?>
                 <!-- Formulario de modificación -->
-                <form action="../controllers/controladorModificarUsuario.php" method="POST">
+                <form action=<?php echo get_controllers('controladorModificarUsuario.php') ?> method="POST">
                     <input type="hidden" name="user_id" value="<?= $userData["id"] ?>">
 
                     <div class="form-icon">
@@ -78,7 +78,7 @@ function buscarUsuario($mensaje = '')
                         <?php echo $mensaje; ?>
                     </div>
                 <?php endif; ?>
-                <form action="../controllers/controladorModificarUsuario.php" method="POST">
+                <form action=<?php echo get_controllers('controladorModificarUsuario.php') ?> method="POST">
                     <input type="text" name="search_username" id="search_username" placeholder="Nombre de usuario" required>
                     <button type="submit" name="search_user"><i class="fas fa-search"></i> Buscar</button>
                 </form>

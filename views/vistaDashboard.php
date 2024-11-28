@@ -28,7 +28,7 @@ function vistaDashboard()
                 <li> <a href="?opcion=ingresar"><i class="fas fa-plus-circle"></i> Ingresar </a></li>
                 <li> <a href="?opcion=modificar"><i class="fas fa-edit"></i> Modificar </a></li>
                 <li> <a href="?opcion=eliminar"><i class="fas fa-trash-alt"></i> Eliminar </a></li>
-                <li> <a href=<?php echo get_controller('logout.php') ?>><i class="fas fa-sign-out-alt"></i> Salir de Sistema </a></li>
+                <li> <a href=<?php echo get_controllers('logout.php') ?>><i class="fas fa-sign-out-alt"></i> Salir de Sistema </a></li>
 
             </ul>
         </div>
@@ -48,16 +48,16 @@ function vistaDashboard()
                     echo "<iframe src='" . get_views('inicio.php') . "' width='800' height='600'></iframe>";
                     break;
                 case 'ver':
-                    echo "<iframe src='" . get_controller('controladorUsuario.php') . "' width='800' height='600'></iframe>";
+                    echo "<iframe src='" . get_controllers('controladorUsuario.php') . "' width='800' height='600'></iframe>";
                     break;
                 case 'ingresar':
-                    echo "<iframe src='" . get_controller('controladorIngresarUsuario.php') . "' width='800' height='600'></iframe>";
+                    echo "<iframe src='" . get_controllers('controladorIngresarUsuario.php') . "' width='800' height='600'></iframe>";
                     break;
                 case 'modificar':
-                    echo "<iframe src='" . get_controller('controladorModificarUsuario.php') . "' width='800' height='600'></iframe>";
+                    echo "<iframe src='" . get_controllers('controladorModificarUsuario.php') . "' width='800' height='600'></iframe>";
                     break;
                 case 'eliminar':
-                    echo "<iframe src='" . get_controller('controladorEliminarUsuario.php') . "' width='800' height='600'></iframe>";
+                    echo "<iframe src='" . get_controllers('controladorEliminarUsuario.php') . "' width='800' height='600'></iframe>";
                     break;
                 default:
                     echo '<p>No has seleccionado ninguna opción</p>';

@@ -6,7 +6,7 @@ define('URL_BASE', 'http://examen_medio_curso.test/');
 define('DB_HOST', 'localhost');
 define('DB_USER', 'root');
 define('DB_NAME', 'dbsistema');
-define('DB_PASS', '');
+define('DB_PASS', '123456789');
 
 
 
@@ -44,7 +44,7 @@ function get_etc($arg1)
     return get_path('etc', $arg1);
 }
 
-function get_controller($arg1)
+function get_controllers($arg1)
 {
     return get_path('controllers', $arg1);
 }

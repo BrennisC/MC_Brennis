@@ -19,7 +19,7 @@ function mostrarFormularioEliminacion($mensaje)
             <div class="message">
                 <?php echo $mensaje; ?>
             </div>
-            <form action="../controllers/controladorEliminarUsuario.php" method="POST">
+            <form action=<?php echo get_controllers('controladorEliminarUsuario.php') ?>" method="POST">
                 <div class="input-container">
                     <i class="fas fa-user"></i>
                     <input type="text" name="datusuario" id="datusuarioS" placeholder="Nombre de usuario" required>

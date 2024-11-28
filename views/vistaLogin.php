@@ -22,7 +22,7 @@ function vistaLogin($error)
                 <h2>Remember Me</h2>
                 <p>Username & Password</p>
 
-                <form action="../controllers/controladorLogin.php" method="post">
+                <form action=<?php echo get_controllers('controladorLogin.php') ?> method="post">
                     <label for="username">Username</label>
                     <input
                         type="text"

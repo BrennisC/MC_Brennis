@@ -35,8 +35,8 @@ function mostrarUsuarios($usuarios)
                             <td><?= $row['password'] ?></td>
                             <td><?= $row['perfil'] ?></td>
                             <td class="actions">
-                                <a class="edit" href=<?php echo get_controller('controladorModificarUsuario.php?username=' . $row['username']) ?>> <i class="fas fa-edit"></i>Editar</a>
-                                <a class="delete" href=<?php echo get_controller('controladorEliminarUsuario.php?username=' . $row['username']) ?>>
+                                <a class="edit" href=<?php echo get_controllers('controladorModificarUsuario.php?username=' . $row['username']) ?>> <i class="fas fa-edit"></i>Editar</a>
+                                <a class="delete" href=<?php echo get_controllers('controladorEliminarUsuario.php?username=' . $row['username']) ?>>
                                     <i class="fas fa-trash-alt"></i>
                                     Eliminar</a>
                             </td>
