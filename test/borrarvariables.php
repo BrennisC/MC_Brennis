@@ -12,7 +12,6 @@ session_start();
     session_destroy();
 
     ?>
-
     se borraron todas las variables de la sesion
     <br>
     <a href="./test.php">regresar</a>

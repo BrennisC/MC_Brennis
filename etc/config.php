@@ -6,7 +6,7 @@ define('URL_BASE', 'http://examen_medio_curso.test/');
 define('DB_HOST', 'localhost');
 define('DB_USER', 'root');
 define('DB_NAME', 'dbsistema');
-define('DB_PASS', '');
+define('DB_PASS', '123456789');
 
 
 
@@ -61,6 +61,15 @@ function get_img($arg1)
     return get_path('img', $arg1);
 }
 
+
+function get_views_dist($arg1)
+{
+    return $_SERVER['DOCUMENT_ROOT'] . '/views/' . $arg1;
+}
+function get_controllers_dist($arg1)
+{
+    return $_SERVER['DOCUMENT_ROOT'] . '/controllers/' . $arg1;
+}
 
 // echo get_UrlBase('index.php');
 // echo "<br>";

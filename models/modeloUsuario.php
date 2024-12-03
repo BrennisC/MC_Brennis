@@ -1,9 +1,9 @@
 <?php
 
 require_once $_SERVER["DOCUMENT_ROOT"] . '/models/connect/conexion.php';
+require_once $_SERVER["DOCUMENT_ROOT"] . '/interfaces/modeloInterfaces.php';
 
-
-class modeloUsuario
+class modeloUsuario implements modeloInterfaces
 {
     private $conexion = null;
     public function __construct()
@@ -39,6 +39,13 @@ class modeloUsuario
         $query->execute([$username, $password, $perfil, $id]);
         return $query->rowCount() > 0;
     }
+
+    public function ValidarUsuario($username, $password)
+    {
+        $query = $this->conexion->prepare("SELECT * FROM usuarios WHERE username = ? AND password = ?");
+        $query->execute([$username, $password]);
+        return $query->fetch(PDO::FETCH_ASSOC);
+    }
 }
 
 
@@ -56,3 +63,4 @@ class modeloUsuario
 // $modelo = new modeloUsuario();
 // echo '<pre>';
 // print_r($modelo);
+// agragar expeciones 
