@@ -1,62 +1,119 @@
-* {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-}
-
 body {
-    font-family: Arial, sans-serif;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background-color: #f4f7fa;
+    color: #333;
     margin: 0;
     padding: 0;
 }
 
+/* Contenedor principal */
 .container {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    height: 70vh;
-    background-color: #f0f4f8;
     width: 100%;
+    max-width: 400px;
+    background-color: #fff;
+    padding: 30px;
+    border-radius: 12px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+    margin: 0 auto;
+    margin-top: 50px;
 }
 
+/* Título */
+h1 {
+    font-size: 2rem;
+    color: #333;
+    text-align: center;
+    margin-bottom: 20px;
+    font-weight: 700;
+}
+
+/* Mensaje de éxito o error */
+.message {
+    padding: 15px;
+    margin-bottom: 20px;
+    background-color: #f8d7da;
+    color: #721c24;
+    border: 1px solid #f5c6cb;
+    border-radius: 5px;
+    font-size: 1rem;
+    text-align: center;
+}
+
+/* Formulario */
 form {
     display: flex;
     flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    background-color: #ffffff;
-    width: 200px;
-    padding: 20px;
-    border-radius: 5px;
-    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-
+    gap: 20px;
 }
 
+/* Etiquetas de los campos */
 label {
-    font-weight: bold;
-    margin-bottom: 5px;
+    font-size: 1rem;
+    color: #555;
+    font-weight: 600;
 }
 
-input {
-    padding: 10px;
-    margin: 10px;
-    border: none;
-    border-radius: 5px;
-    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+/* Estilos de los campos de texto */
+input[type="text"],
+input[type="password"] {
+    padding: 12px;
+    font-size: 1rem;
+    border: 1px solid #ccc;
+    border-radius: 8px;
     width: 100%;
-    max-width: 400px;
-    background-color: #f0f4f8;
+    background-color: #f9f9f9;
     color: #333;
+    transition: border-color 0.3s ease;
 }
 
-button {
-    padding: 10px 20px;
-    margin: 10px;
+/* Foco en los campos */
+input[type="text"]:focus,
+input[type="password"]:focus {
+    border-color: #007BFF;
+    outline: none;
+}
+
+/* Estilo del botón */
+button[type="submit"] {
+    padding: 12px 20px;
+    background-color: #007BFF;
+    color: white;
     border: none;
-    border-radius: 5px;
-    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-    background-color: #3498db;
-    color: #ffffff;
+    border-radius: 8px;
+    font-size: 1rem;
+    font-weight: 600;
     cursor: pointer;
+    transition: background-color 0.3s ease, transform 0.2s ease;
+}
+
+button[type="submit"]:hover {
+    background-color: #0056b3;
+    transform: translateY(-2px);
+}
+
+button[type="submit"]:active {
+    transform: translateY(2px);
+}
+
+/* Estilo de los iconos */
+.fas {
+    margin-right: 8px;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+    .container {
+        width: 90%;
+        padding: 20px;
+    }
+
+    h1 {
+        font-size: 1.8rem;
+    }
+
+    input[type="text"],
+    input[type="password"],
+    button[type="submit"] {
+        font-size: 1rem;
+    }
 }

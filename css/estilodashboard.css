@@ -1,72 +1,156 @@
 * {
     margin: 0;
     padding: 0;
-    font-family: "Roboto", sans-serif;
     box-sizing: border-box;
 }
 
 body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background-color: #f4f7fa;
     display: flex;
-    background-color: #f4f4f4;
+    min-height: 100vh;
+    overflow: hidden;
+}
+
+h1,
+h2,
+h3,
+h4 {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
 }
 
 .menu {
-    background: #d7cfcf;
-    box-shadow: 2px 0 8px rgb(225, 216, 216);
+    width: 250px;
+    background-color: #bbaaaa;
+    color: white;
+    padding-top: 20px;
     height: 100vh;
     position: fixed;
+    top: 0;
+    left: 0;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.username {
+    text-align: center;
+    margin-bottom: 30px;
+}
+
+.username h1 {
+    font-size: 1.6rem;
+    margin-bottom: 5px;
+}
+
+.username hr {
+    width: 80%;
+    margin-top: 5px;
+    border: 1px solid #555;
+}
+
+ul {
+    list-style: none;
+    width: 100%;
+}
+
+ul li {
+    width: 100%;
+}
+
+ul li a {
+    text-decoration: none;
+    color: #fff;
+    padding: 15px 20px;
+    display: block;
+    font-size: 1.1rem;
+    transition: background-color 0.3s ease, padding-left 0.3s ease;
+}
+
+ul li a:hover {
+    background-color: #007BFF;
+    padding-left: 30px;
+}
+
+ul li a i {
+    margin-right: 10px;
+}
+
+/* Estilo para el contenido principal */
+.contenido {
+    margin-left: 250px;
+    padding: 20px;
+    width: 100%;
+    background-color: #f9f9f9;
+    min-height: 100vh;
+}
+
+h2 {
+    margin-bottom: 20px;
     color: #333;
 }
 
-.menu ul {
-    list-style-type: none;
-    padding: 0;
-    margin: 0;
-}
-
-.menu ul li {
-    margin: 15px 0;
-}
-
-.menu ul li a {
-    display: flex;
-    padding: 12px 20px;
-    text-decoration: none;
-    color: #000000;
-    font-size: 16px;
-    border-radius: 8px;
-    transition: background-color 0.3s, transform 0.2s;
-}
-
-.menu ul li a:hover {
-    background-color: #575757;
-    transform: scale(1.05);
-}
-
-.menu ul li a i {
-    margin-right: 12px;
-    font-size: 18px;
-}
-
-.contenido {
-    margin-left: 260px;
+/* Estilos para las secciones específicas del dashboard */
+.card {
+    background-color: white;
     padding: 20px;
-    flex: 1;
+    margin-bottom: 20px;
+    border-radius: 10px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
 
-.contenido h1 {
-    font-size: 28px;
-    color: #222;
-    margin-bottom: 15px;
+.card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 6px 18px rgba(0, 0, 0, 0.1);
 }
 
-.contenido p {
-    color: #555;
+.card h3 {
+    font-size: 1.5rem;
     margin-bottom: 10px;
-    line-height: 1.6;
 }
 
-.selected-option {
-    font-weight: bold;
-    color: #ff5722;
+.card p {
+    font-size: 1.2rem;
+    color: #007BFF;
+}
+
+/* Responsive design para pantallas más pequeñas */
+@media (max-width: 768px) {
+    .menu {
+        width: 200px;
+    }
+
+    .contenido {
+        margin-left: 200px;
+    }
+
+    h1 {
+        font-size: 1.4rem;
+    }
+
+    ul li a {
+        font-size: 1rem;
+    }
+}
+
+@media (max-width: 500px) {
+    .menu {
+        width: 100%;
+        position: relative;
+        height: auto;
+    }
+
+    .contenido {
+        margin-left: 0;
+    }
+
+    ul li a {
+        font-size: 1rem;
+        padding: 12px;
+    }
+
+    h1 {
+        font-size: 1.2rem;
+    }
 }
