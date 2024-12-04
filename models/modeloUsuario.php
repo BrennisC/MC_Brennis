@@ -39,13 +39,6 @@ class modeloUsuario implements modeloInterfaces
         $query->execute([$username, $password, $perfil, $id]);
         return $query->rowCount() > 0;
     }
-
-    public function ValidarUsuario($username, $password)
-    {
-        $query = $this->conexion->prepare("SELECT * FROM usuarios WHERE username = ? AND password = ?");
-        $query->execute([$username, $password]);
-        return $query->fetch(PDO::FETCH_ASSOC);
-    }
 }
 
 
