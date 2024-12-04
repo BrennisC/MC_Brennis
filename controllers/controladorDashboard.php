@@ -5,6 +5,7 @@ if (session_status() == PHP_SESSION_NONE) {
 }
 require_once $_SERVER['DOCUMENT_ROOT'] . '/etc/config.php';
 
+// Check if user is logged in
 if (!isset($_SESSION["txtusername"])) {
     header('Location: ' . get_UrlBase('index.php'));
     exit();
@@ -18,34 +19,41 @@ $allowedRoutes = [
     'eliminar' => 'controladorEliminarUsuario.php'
 ];
 
-$opcion = filter_input(INPUT_GET, 'opcion');
-$opcion = $opcion ?: 'inicio'; // Fallback to 'inicio' if null
+$requestUri = parse_url($_SERVER['REQUEST_URI'], PHP_URL_PATH);
+$pathInfo = trim($requestUri, '/');
 
-error_log('Current opcion: ' . $opcion);
+$routeMapping = [
+    '' => 'inicio',
+    'inicio' => 'inicio',
+    'ver' => 'ver',
+    'ingresar' => 'ingresar',
+    'modificar' => 'modificar',
+    'eliminar' => 'eliminar'
+];
 
-// Determine the content
+$opcion = $routeMapping[$pathInfo] ?? 'inicio';
+
 try {
     if (isset($allowedRoutes[$opcion])) {
         ob_start();
         $controllerPath = get_controllers_dist($allowedRoutes[$opcion]);
 
-        if (!file_exists($controllerPath)) {
-            throw new Exception("Controller file not found: " . $controllerPath);
+        if (file_exists($controllerPath)) {
+            include $controllerPath;
+        } else {
+            throw new Exception("Controlador no encontrado");
         }
 
-        include $controllerPath;
         $contenido = ob_get_clean();
     } else {
         http_response_code(404);
         $contenido = '<h1>Página no encontrada</h1>';
-        error_log('Invalid route: ' . $opcion);
     }
 } catch (Exception $e) {
-    error_log('Error processing route: ' . $e->getMessage());
-    error_log('Trace: ' . $e->getTraceAsString());
-
     http_response_code(500);
     $contenido = '<h1>Error interno del servidor</h1>';
+    error_log($e->getMessage());
 }
 
+// Include the dashboard view
 include get_views_dist('vistaDashboard.php');

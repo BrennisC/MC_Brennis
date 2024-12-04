@@ -24,13 +24,12 @@ require_once $_SERVER["DOCUMENT_ROOT"] . '/etc/config.php';
 
         </h1>
         <ul>
-            <li> <a href="?opcion=inicio"><i class="fas fa-home"></i> Inicio </a> </li>
-            <li> <a href="?opcion=ver"><i class="fas fa-eye"></i> Ver </a></li>
-            <li> <a href="?opcion=ingresar"><i class="fas fa-plus-circle"></i> Ingresar </a></li>
-            <li> <a href="?opcion=modificar"><i class="fas fa-edit"></i> Modificar </a></li>
-            <li> <a href="?opcion=eliminar"><i class="fas fa-trash-alt"></i> Eliminar </a></li>
+            <li> <a href="/inicio"><i class="fas fa-home"></i> Inicio </a> </li>
+            <li> <a href="/ver"><i class="fas fa-eye"></i> Ver </a></li>
+            <li> <a href="/ingresar"><i class="fas fa-plus-circle"></i> Ingresar </a></li>
+            <li> <a href="/modificar"><i class="fas fa-edit"></i> Modificar </a></li>
+            <li> <a href="/eliminar"><i class="fas fa-trash-alt"></i> Eliminar </a></li>
             <li> <a href=<?php echo get_controllers('logout.php') ?>><i class="fas fa-sign-out-alt"></i> Salir de Sistema </a></li>
-
         </ul>
     </div>
     <div class="contenido">

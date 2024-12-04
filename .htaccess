@@ -1,5 +1,9 @@
 ErrorDocument 404 http://examen_medio_curso.test/views/error_pages/404.php
+
 RewriteEngine On
-RewriteCond %{REQUEST_FILENAME} !-f
-RewriteCond %{REQUEST_FILENAME} !-d
-RewriteRule ^(.\*)$ index.php [L]
+RewriteBase /
+RewriteRule ^inicio$ controllers/controladorDashboard.php?opcion=inicio [L,QSA]
+RewriteRule ^ver$ controllers/controladorDashboard.php?opcion=ver [L,QSA]
+RewriteRule ^ingresar$ controllers/controladorDashboard.php?opcion=ingresar [L,QSA]
+RewriteRule ^modificar$ controllers/controladorDashboard.php?opcion=modificar [L,QSA]
+RewriteRule ^eliminar$ controllers/controladorDashboard.php?opcion=eliminar [L,QSA]
