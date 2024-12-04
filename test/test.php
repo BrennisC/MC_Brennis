@@ -10,11 +10,9 @@ require_once $_SERVER['DOCUMENT_ROOT'] . '/etc/config.php ';
 
 <body>
     <?php
-    $_SESSION['favcolor'] = "green";
-    $_SESSION['favanimal'] = "cat";
 
 
-    echo $_SERVER['DOCUMENT_ROOT'];
+    echo $_SERVER['REQUEST_URI'];
 
     // echo get_UrlBase_view('inicio.php');
     // echo '<br>';

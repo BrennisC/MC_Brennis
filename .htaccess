@@ -1,1 +1,5 @@
 ErrorDocument 404 http://examen_medio_curso.test/views/error_pages/404.php
+RewriteEngine On
+RewriteCond %{REQUEST_FILENAME} !-f
+RewriteCond %{REQUEST_FILENAME} !-d
+RewriteRule ^(.\*)$ index.php [L]

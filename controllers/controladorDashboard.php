@@ -1,47 +1,51 @@
 <?php
+// Ensure session is started and configuration is loaded
 if (session_status() == PHP_SESSION_NONE) {
     session_start();
 }
 require_once $_SERVER['DOCUMENT_ROOT'] . '/etc/config.php';
 
-// Verificar si la sesión está activa
 if (!isset($_SESSION["txtusername"])) {
     header('Location: ' . get_UrlBase('index.php'));
     exit();
 }
 
-$opcion = $_GET["opcion"] ?? "inicio"; // Por defecto, la página inicial
+$allowedRoutes = [
+    'inicio' => 'controladorInicio.php',
+    'ver' => 'controladorUsuario.php',
+    'ingresar' => 'controladorIngresarUsuario.php',
+    'modificar' => 'controladorModificarUsuario.php',
+    'eliminar' => 'controladorEliminarUsuario.php'
+];
 
-switch ($opcion) {
-    case 'inicio':
+$opcion = filter_input(INPUT_GET, 'opcion');
+$opcion = $opcion ?: 'inicio'; // Fallback to 'inicio' if null
+
+error_log('Current opcion: ' . $opcion);
+
+// Determine the content
+try {
+    if (isset($allowedRoutes[$opcion])) {
         ob_start();
-        include get_controllers_dist('controladorInicio.php');
+        $controllerPath = get_controllers_dist($allowedRoutes[$opcion]);
+
+        if (!file_exists($controllerPath)) {
+            throw new Exception("Controller file not found: " . $controllerPath);
+        }
+
+        include $controllerPath;
         $contenido = ob_get_clean();
-        break;
-    case 'ver':
-        ob_start();
-        include get_controllers_dist('controladorUsuario.php');
-        $contenido = ob_get_clean();
-        break;
-    case 'ingresar':
-        ob_start();
-        include get_controllers_dist('controladorIngresarUsuario.php');
-        $contenido = ob_get_clean();
-        break;
-    case 'modificar':
-        ob_start();
-        include get_controllers_dist('controladorModificarUsuario.php');
-        $contenido = ob_get_clean();
-        break;
-    case 'eliminar':
-        ob_start();
-        include get_controllers_dist('controladorEliminarUsuario.php');
-        $contenido = ob_get_clean();
-        break;
-    default:
-        http_response_code(400);
+    } else {
+        http_response_code(404);
         $contenido = '<h1>Página no encontrada</h1>';
+        error_log('Invalid route: ' . $opcion);
+    }
+} catch (Exception $e) {
+    error_log('Error processing route: ' . $e->getMessage());
+    error_log('Trace: ' . $e->getTraceAsString());
+
+    http_response_code(500);
+    $contenido = '<h1>Error interno del servidor</h1>';
 }
 
-// Incluye la vista del dashboard después de haber asignado el contenid
 include get_views_dist('vistaDashboard.php');
