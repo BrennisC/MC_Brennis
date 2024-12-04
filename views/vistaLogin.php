@@ -60,9 +60,6 @@ function vistaLogin($error)
                 </form>
 
 
-                <span class="links">
-                    <a href=<?php echo get_views('registar.php') ?>>Register Me</a>
-                </span>
             </div>
         </div>
         <script src=<?php echo get_js('aminacion.js') ?>></script>

@@ -14,6 +14,10 @@ function vistaInicio()
     </head>
 
     <body>
+        <div id="loader" class="loader-overlay">
+            <div class="loader"></div>
+        </div>
+
         <div class="container">
             <h1>Dashboard </h1>
 
