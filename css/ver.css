@@ -1,29 +1,29 @@
 body {
-    font-family: Arial, sans-serif;
-    background-color: #f4f4f4;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #ffffff;
     color: #333;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    height: 100vh;
 }
 
+/* Contenido principal */
 .content {
-    width: 100%;
-    max-width: 800px;
-    background: #fff;
+    width: 90%;
+    max-width: 1200px;
+    margin: 20px auto;
     padding: 20px;
-    border-radius: 10px;
-    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
 }
 
+/* Título principal */
 h1 {
+    font-size: 2rem;
+    color: #000;
     text-align: center;
     margin-bottom: 20px;
-    font-size: 24px;
-    color: #333;
+    font-weight: 700;
 }
 
+/* Tabla */
 table {
     width: 100%;
     border-collapse: collapse;
@@ -32,27 +32,80 @@ table {
 
 th,
 td {
+    padding: 12px 15px;
     text-align: left;
-    padding: 10px;
     border: 1px solid #ddd;
 }
 
 th {
-    background-color: #333;
+    background-color: #000;
     color: #fff;
-    font-size: 14px;
+    font-size: 1.1rem;
 }
 
 td {
-    background-color: #fafafa;
-}
-
-tr:hover td {
-    background-color: #f0f0f0;
-}
-
-.icon {
-    text-align: center;
+    background-color: #f9f9f9;
     color: #333;
-    font-size: 18px;
+    font-size: 1rem;
+}
+
+/* Iconos de la tabla */
+.icon {
+    font-size: 1.2rem;
+    color: #333;
+}
+
+.actions a {
+    text-decoration: none;
+    color: #000;
+    padding: 6px 12px;
+    border-radius: 4px;
+    font-size: 0.95rem;
+    display: inline-block;
+    margin-right: 8px;
+    transition: background-color 0.3s ease;
+}
+
+/* Estilos para los enlaces de acción */
+.edit {
+    background-color: #f1f1f1;
+}
+
+.delete {
+    background-color: #f8d7da;
+}
+
+.edit:hover {
+    background-color: #e0e0e0;
+}
+
+.delete:hover {
+    background-color: #f1b0b7;
+}
+
+/* Estilos para los iconos */
+.fas {
+    margin-right: 5px;
+}
+
+/* Fila seleccionada */
+tr:hover {
+    background-color: #f2f2f2;
+}
+
+/* Estilo de tabla en pantallas pequeñas */
+@media (max-width: 768px) {
+    table {
+        width: 100%;
+        font-size: 0.9rem;
+    }
+
+    th,
+    td {
+        padding: 8px 10px;
+    }
+
+    h1 {
+        font-size: 1.5rem;
+    }
 }
