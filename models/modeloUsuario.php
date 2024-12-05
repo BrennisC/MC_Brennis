@@ -1,9 +1,8 @@
 <?php
 
 require_once $_SERVER["DOCUMENT_ROOT"] . '/models/connect/conexion.php';
-require_once $_SERVER["DOCUMENT_ROOT"] . '/interfaces/modeloInterfaces.php';
 
-class modeloUsuario implements modeloInterfaces
+class modeloUsuario
 {
     private $conexion = null;
     public function __construct()

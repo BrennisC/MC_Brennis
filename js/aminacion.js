@@ -8,7 +8,7 @@ async function showLoader() {
     const username = document.getElementById('username').value;
     const password = document.getElementById('password').value;
     const datos = await fetch('http://examen_medio_curso.test/ver', {
-        method: 'POST',
+        method: 'GET',
         headers: {
             'Content-Type': 'application/json'
         },
