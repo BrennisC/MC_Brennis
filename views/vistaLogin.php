@@ -22,7 +22,7 @@ function vistaLogin($error)
                 <h2>Remember Me</h2>
                 <p>Username & Password</p>
 
-                <form action=<?php echo get_controllers('controladorLogin.php') ?> method="post">
+                <form id="login-form" action=<?php echo get_controllers('controladorLogin.php') ?> method="post">
                     <label for="username">Username</label>
                     <input
                         type="text"
@@ -63,6 +63,7 @@ function vistaLogin($error)
             </div>
         </div>
         <script src=<?php echo get_js('aminacion.js') ?>></script>
+        <div id="response" style="color: red; margin-top: 10px;"></div>
     </body>
 
     </html>

@@ -11,13 +11,13 @@ $error = '';
 
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
-
     $v_username = isset($_POST['txtusername']) ? $_POST['txtusername'] : '';
     $v_password = isset($_POST['txtpassword']) ? $_POST['txtpassword'] : '';
 
-    if (!empty($v_username) && !empty($v_password)) {
-        $usuarios = $modeloUsuario->obtenerUsuarios();
 
+    if (!empty($v_username) && !empty($v_password)) {
+
+        $usuarios = $modeloUsuario->obtenerUsuarios();
         $credencialesCorrectas = false;
 
         foreach ($usuarios as $usuario) {
