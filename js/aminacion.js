@@ -4,35 +4,32 @@ setTimeout(function () {
 
 const login_form = document.getElementById('login-form');
 
-login_form.addEventListener('submit', async (event) => {
-    event.preventDefault();
+async function showLoader() {
+    const username = document.getElementById('username').value;
+    const password = document.getElementById('password').value;
+    const datos = await fetch('http://examen_medio_curso.test/ver', {
+        method: 'POST',
+        headers: {
+            'Content-Type': 'application/json'
+        },
+        body: JSON.stringify({ username, password })
+    })
+    const loader = document.getElementById('loader');
+    loader.style.display = 'block';
 
-    const username = document.getElementById('username').value.trim();
-    const password = document.getElementById('password').value.trim();
-    const response = document.getElementById('response');
+    setTimeout(function () {
+        loader.style.display = 'none';
 
-
-    try {
-        const response = await fetch('controladorLogin.php', {
-            method: 'POST',
-            headers: {
-                'Content-Type': 'application/json'
-            },
-            body: JSON.stringify({ username, password })
-        });
-
-        if (response.ok) {
-            const data = await response.json();
-            if (data.success) {
-                window.location.href = 'controladorInicio.php';
-            } else {
-                response.textContent = 'Username o contraseña incorrectos';
-            }
+        if (username === datos['username'] && password === datos['password']) {
+            window.location.href = 'controladorInicio.php';
+        } else {
+            alert('Credenciales incorrectas');
         }
+    }, 2000);
 
-    } catch (error) {
-        console.error(error);
-        response.textContent = 'Error al iniciar sesión';
-    }
+}
 
-})
+login_form.addEventListener('submit', function (event) {
+    event.preventDefault();
+    showLoader();
+});

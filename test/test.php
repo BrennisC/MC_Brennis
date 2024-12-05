@@ -11,9 +11,6 @@ require_once $_SERVER['DOCUMENT_ROOT'] . '/etc/config.php ';
 <body>
     <?php
 
-
-    echo $_SERVER['REQUEST_URI'];
-
     // echo get_UrlBase_view('inicio.php');
     // echo '<br>';
     // echo 'la variables han sido almacenadas';
@@ -34,8 +31,9 @@ require_once $_SERVER['DOCUMENT_ROOT'] . '/etc/config.php ';
 
     // print_r($usuario['id']);
     // print_r($usuario['username']);
-    // 
+    //
     ?>
+
 
     <a href="./vervariables.php">ir a ver la variables</a>
 </body>
