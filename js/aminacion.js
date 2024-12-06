@@ -7,7 +7,7 @@ const login_form = document.getElementById('login-form');
 async function showLoader() {
     const username = document.getElementById('username').value;
     const password = document.getElementById('password').value;
-    const datos = await fetch('http://examen_medio_curso.test/ver', {
+    const datos = await fetch('/controllers/controladorLogin.php', {
         method: 'GET',
         headers: {
             'Content-Type': 'application/json'
